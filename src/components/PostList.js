@@ -1,12 +1,12 @@
 // import './App.css';
 
-function Post() {
+function PostList() {
     return (
       <div>
-        
+        Postlist
       </div>
     );
   }
   
-  export default Post;
+  export default PostList;
   
