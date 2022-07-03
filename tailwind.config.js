@@ -1,12 +1,20 @@
-module.exports = {
+module.exports ={
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {},
   },
-  plugins: [
-    require('preline/plugin')
-  ],
+  plugins: [require('@tailwindcss/typography'), require("daisyui")],
+  daisyui: {
+    styled: true,
+    themes: ["light", "business"],
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "business",
+  },
   
 }
