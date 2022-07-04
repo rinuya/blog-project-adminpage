@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const  Login = () => {
-
+    
     const [loginInfo, setLoginInfo] = useState({
         username: "",
         password: "",
     });
 
+    const navigate = useNavigate();
 
     const loginFunction = async (username, password) => {
         try{
@@ -23,24 +24,16 @@ const  Login = () => {
                 })
             });
             response = await response.json();
-            localStorage.setItem("token", response.token)
+            await localStorage.setItem("token", response.token)
             console.log (response)
+            navigate("/posts");
+
         }
         catch (error) {
             console.error(error);
         }
        
     }
-    // 
-    // function ....
-    // let history = useHistory();
-    // if success then 
-    // { 
-    // history.push(/"posts");
-    // } 
-    //
-    // 
-
 
     const handleChange = (event) => {
         setLoginInfo({ ...loginInfo, [event.target.name]: event.target.value });
@@ -50,7 +43,7 @@ const  Login = () => {
         event.preventDefault();
         console.log("This is the react state:" +loginInfo.username +" "+ loginInfo.password)
         // prevents the submit button from refreshing the page
-        await loginFunction();
+        await loginFunction(loginInfo.username, loginInfo.password);
       };
     
 

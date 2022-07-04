@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import PostList from "./PostList"
 import Login from "./Login"
 import CommentList from "./CommentList"
+import CreatePost from './CreatePost'
+
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { Navigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
@@ -48,6 +50,7 @@ function App() {
             <Route path="/posts" element={<PostList />} />
             <Route path="/comments" element={<CommentList />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/create-post" element={<CreatePost />} />
           </Routes>
         </div> 
         <div className="drawer-side">
