@@ -48,7 +48,7 @@ const  Login = () => {
         <div className="h-full neutral-content w-full py-16 px-4 bg-base-200">
             <div className="flex flex-col items-center justify-center ">
                 
-                <div className="flex flex-col items-center shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16 bg-base-100">
+                <div className="flex flex-col items-center shadow rounded xl:w-1/3 md:w-1/2 w-full p-10 xl:mt-6 mx-4 bg-base-100">
                     <p tabIndex={0} aria-label="Login to your account" className="text-2xl font-extrabold leading-6">
                         Login to your account
                     </p>
@@ -57,14 +57,14 @@ const  Login = () => {
                         <label className="label mt-5">
                             <span className="label-text ">Username</span>
                         </label>
-                        <input type="text" placeholder="Username" name="username" className="input input-bordered w-full max-w-xs"  onChange={handleChange} value={loginInfo.username} />
+                        <input type="text" placeholder="Username" name="username" className="focus:border-secondary input input-bordered w-full max-w-xs"  onChange={handleChange} value={loginInfo.username} />
                       
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="Password" className="input input-bordered w-full max-w-xs" name="password"  onChange={handleChange} value={loginInfo.password} />
+                        <input type="password" placeholder="Password" className="focus:border-secondary input input-bordered w-full max-w-xs" name="password"  onChange={handleChange} value={loginInfo.password} />
                        
                     </div>
                     <div className="mt-8">

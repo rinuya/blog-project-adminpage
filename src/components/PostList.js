@@ -23,7 +23,7 @@ function PostList() {
   }
 
     return (
-      <div>
+      <div className="bg-base-300 h-full neutral-content w-full">
         {/* <p>{token.token}</p> */}
         <button className="btn btn-secondary" onClick={()=>grabToken()}>
           Click me to display the token above

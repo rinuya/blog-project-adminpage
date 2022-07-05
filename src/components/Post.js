@@ -3,7 +3,7 @@
 function Post() {
 
     return (
-      <div>
+      <div bg-base-300>
         
       </div>
     );

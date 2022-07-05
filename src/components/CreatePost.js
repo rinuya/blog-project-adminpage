@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Editor } from '@tinymce/tinymce-react';
+import TagList from "./TagList"
 
 
 
@@ -16,6 +17,7 @@ const  CreatePost = () => {
     };
     const [postDetails, setPostDetails] = useState({
         title: "",
+        preview: "",
         content: "",
         //how do I upload images
         img: "",
@@ -46,6 +48,12 @@ const  CreatePost = () => {
             });
             response = await response.json();
             console.log(response);
+  
+            if (response.success) {
+                navigate("/posts");
+            } else {
+                alert(response.message)
+            }
             //so once everything is subitted call the function that will reload the posts on the page before. You do that by passing the function in as props and then calling it inside here on success
         }
         catch (error) {
@@ -85,22 +93,29 @@ const  CreatePost = () => {
     
 
     return (
-        <div className="h-full neutral-content w-full py-16 px-4 bg-base-300">
+        <div className="h-full neutral-content w-full py-16 px-1 md:px-4 bg-base-200">
         <div className="flex flex-col items-center justify-center ">
-            <div className="flex flex-col shadow rounded lg:w-2/3 w-full lg:p-10 p-2 md:p-5 bg-base-100">
-                <p tabIndex={0} aria-label="Login to your account" className="text-2xl font-extrabold leading-6">
+            <div className="flex flex-col shadow rounded lg:w-2/3 w-full lg:p-10 p-3 md:p-5 bg-base-100">
+                <p tabIndex={0} aria-label="Login to your account" className="prose-xl text-2xl font-extrabold leading-6">
                    Create a Blog-Post
                 </p>
                 <form onSubmit={handleSubmit} className="divide-dashed">
                 <div className="form-control w-full">
                     <label className="label mt-5">
-                        <span className="prose-xl">Title</span>
+                        <span className=" prose-xl">Title</span>
                     </label>
-                    <input type="text" placeholder="Title" name="title" className="input input-bordered"  onChange={handleChange} value={postDetails.title} />
+                    <input type="text" placeholder="Title" name="title" className="input input-bordered focus:border-secondary"  onChange={handleChange} value={postDetails.title} />
                 </div>
                 <div className="form-control w-full">
-                <label className="label mt-5">
-                        <span className="prose-xl">Content</span>
+                    <label className="label md:mt-5 mt-2">
+                        <span className=" prose-xl">Preview</span>
+                    </label>
+                    <textarea maxlength="300" type="text" placeholder="This is what will be displayed in the post preview on the /posts page" name="preview" className="focus:border-secondary textarea textarea-bordered h-28"  onChange={handleChange} value={postDetails.preview} />
+                </div>
+                
+                <div className="form-control w-full">
+                <label className="label md:mt-5 mt-2">
+                        <span className=" prose-xl">Content</span>
                     </label>
                 <Editor
                 
@@ -124,14 +139,21 @@ const  CreatePost = () => {
                     }}
                 />
                 </div>
+                
                 <div className="form-control w-full">
                     <label className="label mt-5">
-                        <span className="prose-xl">Tags</span>
+                        <span className=" prose-xl">Tags</span>
                     </label>
-                    <div>
-                    <input type="text" placeholder="Tag" name="tags" className="input input-bordered lg:w-1/2 xl:w-1/2 md:w-1/2 w-2/3"  onChange={handleTagInput} value={currentTag} />
-                    <button type="button" className="btn lg:w-1/3 xl:w-1/4 ml-1 sm:ml-3 mt-2" onClick={handleTagSubmit}>Add tag</button>
+                    <TagList tagList={tags} />
+                    <div class="input-group">
+                    <input type="text" placeholder="Tag" name="tags" className="focus:border-secondary input input-bordered lg:w-1/2 xl:w-1/2 md:w-1/2 w-2/3"  onChange={handleTagInput} value={currentTag} />
+                    <button type="button" className="btn btn-secondary" onClick={handleTagSubmit}>Add tag</button>
                     </div>
+                </div>
+                <div className="form-control w-full">
+                    <label className="label mt-5">
+                        <span className=" prose-xl">Upload Image (Coming soon...)</span>
+                    </label>
                 </div>
                 <div className="mt-8">
                     <button type="submit" className="btn btn-primary px-12">
