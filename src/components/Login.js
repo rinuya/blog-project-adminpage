@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const  Login = () => {
-    
+
     const [loginInfo, setLoginInfo] = useState({
         username: "",
         password: "",
@@ -27,24 +27,20 @@ const  Login = () => {
             await localStorage.setItem("token", response.token)
             console.log (response)
             navigate("/posts");
-
         }
         catch (error) {
             console.error(error);
         }
-       
     }
 
     const handleChange = (event) => {
         setLoginInfo({ ...loginInfo, [event.target.name]: event.target.value });
-      };
+    };
 
     async function handleSubmit (event) {
         event.preventDefault();
-        console.log("This is the react state:" +loginInfo.username +" "+ loginInfo.password)
-        // prevents the submit button from refreshing the page
         await loginFunction(loginInfo.username, loginInfo.password);
-      };
+    };
     
 
 

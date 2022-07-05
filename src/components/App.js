@@ -1,4 +1,5 @@
 // import './App.css';
+import React, { useState } from "react";
 import { useEffect } from 'react'
 import PostList from "./PostList"
 import Login from "./Login"
@@ -9,11 +10,12 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { Navigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import { themeChange } from 'theme-change'
- 
+
 
 // This will encompass the whole page, content will then have "Main JS"
 
 function App() {
+  
   //Changes theme 
   useEffect(() => {
     themeChange(false)
