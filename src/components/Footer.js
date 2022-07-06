@@ -6,8 +6,8 @@ function Footer() {
         <footer class="footer footer-center p-10 bg-base-300 text-base-content rounded">
             <div class="grid grid-flow-col gap-4">
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/rinuya"class="link link-hover">About me</a> 
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/rinuya/blog-project-adminpage" class="link link-hover">Repo</a> 
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/rinuya/blog-project-api"class="link link-hover">API</a> 
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/rinuya/blog-project-adminpage" class="link link-hover">ThisRepo</a> 
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/rinuya/blog-project-api"class="link link-hover">UsedAPI</a> 
                 <a target="_blank" rel="noopener noreferrer" href="https://github.com/rinuya/blog-project-frontpage" class="link link-hover">UserRepo</a>
             </div> 
             <div>

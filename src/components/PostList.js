@@ -1,4 +1,3 @@
-// import './App.css';
 import { data } from "autoprefixer";
 import { postcss } from "daisyui/src/lib/postcss-prefixer";
 import React, { useEffect, useState } from "react";
@@ -18,7 +17,7 @@ function PostList() {
   });
 
  // Fetch data, then on response store that data in it's seperate state.
-  async function grabToken () {
+  async function fetchPosts () {
     try{
       let token = await localStorage.getItem("token");
       let response = await fetch("http://localhost:3000/private/posts", {
@@ -43,14 +42,12 @@ function PostList() {
   catch (error) {
       console.error(error);
   }
-    // do API call
-    // store object in state
     // set dataReceived to true (triggers rerender)
   }
+
+
   // Display blog articles in a list 
   // If clicked on an article, pass down the item into the component through props
-
-  
   if (dataReceived) {
     return (
       <div className="bg-base-300 h-full neutral-content w-full flex flex-col items-center">

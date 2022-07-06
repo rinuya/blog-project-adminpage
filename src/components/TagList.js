@@ -1,6 +1,5 @@
-// import './App.css';
-
 function TagList(props) {
+
     let tagList = props.tagList;
 
     return (
