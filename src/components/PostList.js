@@ -3,6 +3,7 @@ import { data } from "autoprefixer";
 import { postcss } from "daisyui/src/lib/postcss-prefixer";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PostListCard from "./PostListCard";
 
 function PostList() {
   
@@ -23,17 +24,9 @@ function PostList() {
   }
 
     return (
-      <div className="bg-base-300 h-full neutral-content w-full">
+      <div className="bg-base-300 h-full neutral-content w-full flex flex-column justify-center">
         {/* <p>{token.token}</p> */}
-        <button className="btn btn-secondary" onClick={()=>grabToken()}>
-          Click me to display the token above
-        </button>
-        <Link to="/create-post"> 
-          <p className="btn btn-primary">
-            Create new Blogpost
-          </p>
-        </Link>
-       
+        <PostListCard />       
       </div>
     );
   }
