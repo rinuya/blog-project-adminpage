@@ -17,7 +17,7 @@ module.exports ={
                 
         "secondary": "#16a34a",
                 
-        "accent": "#fcd34d",
+        "accent": "#ea580c",
                 
         "neutral": "#4b5563",
                 
@@ -33,7 +33,7 @@ module.exports ={
       },
     }, 
     {dark: {
-      ...require("daisyui/src/colors/themes")["[data-theme=dark]"],
+      ...require("daisyui/src/colors/themes")["[data-theme=dracula]"],
       
       "primary": "#059669",
               

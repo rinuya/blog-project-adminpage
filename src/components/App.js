@@ -7,29 +7,13 @@ import CommentList from "./CommentList"
 import CreatePost from './CreatePost'
 import Footer from './Footer'
 
-//styles
-
-
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { Navigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 
-
-// This will encompass the whole page, content will then have "Main JS"
-
 function App(props) {
 
-  // //Changes theme
-  // useEffect(() => {
-  //   themeChange(false)
-  //   // 👆 false parameter is required for react project
-  // }, [])
-
-  // const Themes = [light, dark];
-
-
   const changeTheme = props.switchTheTheme;
-
 
     return (
       <div className="drawer h-screen">
