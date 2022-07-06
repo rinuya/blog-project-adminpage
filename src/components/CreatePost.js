@@ -104,13 +104,13 @@ const  CreatePost = () => {
                     <label className="label mt-5">
                         <span className=" prose-xl">Title</span>
                     </label>
-                    <input type="text" placeholder="Title" name="title" className="input input-bordered focus:border-secondary"  onChange={handleChange} value={postDetails.title} />
+                    <input type="text" placeholder="Title" name="title" className="input input-bordered input-secondary focus:border-secondary"  onChange={handleChange} value={postDetails.title} />
                 </div>
                 <div className="form-control w-full">
                     <label className="label md:mt-5 mt-2">
                         <span className=" prose-xl">Preview</span>
                     </label>
-                    <textarea maxlength="300" type="text" placeholder="This is what will be displayed in the post preview on the /posts page" name="preview" className="focus:border-secondary textarea textarea-bordered h-28"  onChange={handleChange} value={postDetails.preview} />
+                    <textarea maxlength="300" type="text" placeholder="This is what will be displayed in the post preview on the /posts page" name="preview" className="focus:border-secondary textarea textarea-bordered textarea-secondary h-28"  onChange={handleChange} value={postDetails.preview} />
                 </div>
                 
                 <div className="form-control w-full">
@@ -146,7 +146,7 @@ const  CreatePost = () => {
                     </label>
                     <TagList tagList={tags} />
                     <div class="input-group">
-                    <input type="text" placeholder="Tag" name="tags" className="focus:border-secondary input input-bordered lg:w-1/2 xl:w-1/2 md:w-1/2 w-2/3"  onChange={handleTagInput} value={currentTag} />
+                    <input type="text" placeholder="Tag" name="tags" className="focus:border-secondary input input-secondary input-bordered lg:w-1/2 xl:w-1/2 md:w-1/2 w-2/3"  onChange={handleTagInput} value={currentTag} />
                     <button type="button" className="btn btn-secondary" onClick={handleTagSubmit}>Add tag</button>
                     </div>
                 </div>

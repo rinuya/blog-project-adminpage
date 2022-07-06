@@ -41,8 +41,6 @@ const  Login = () => {
         event.preventDefault();
         await loginFunction(loginInfo.username, loginInfo.password);
     };
-    
-
 
     return (
         <div className="h-full neutral-content w-full py-16 px-4 bg-base-200">
@@ -57,14 +55,14 @@ const  Login = () => {
                         <label className="label mt-5">
                             <span className="label-text ">Username</span>
                         </label>
-                        <input type="text" placeholder="Username" name="username" className="focus:border-secondary input input-bordered w-full max-w-xs"  onChange={handleChange} value={loginInfo.username} />
+                        <input type="text" placeholder="Username" name="username" className="focus:border-secondary input input-bordered input-secondary w-full max-w-xs"  onChange={handleChange} value={loginInfo.username} />
                       
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="Password" className="focus:border-secondary input input-bordered w-full max-w-xs" name="password"  onChange={handleChange} value={loginInfo.password} />
+                        <input type="password" placeholder="Password" className="input input-bordered input-secondary focus:border-secondary w-full max-w-xs" name="password"  onChange={handleChange} value={loginInfo.password} />
                        
                     </div>
                     <div className="mt-8">

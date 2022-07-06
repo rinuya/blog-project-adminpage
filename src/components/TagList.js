@@ -6,7 +6,7 @@ function TagList(props) {
     return (
       <div>
          {tagList.map((tag) => {
-            return <p className="text-accent-focus badge badge-outline mb-2 mr-2 p-3">{tag}</p>
+            return <p className="text-gray-800 badge badge-accent mb-2 mr-2 p-3">{tag}</p>
         })}
       </div>
     );
