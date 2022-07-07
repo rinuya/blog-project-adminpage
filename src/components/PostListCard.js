@@ -1,6 +1,8 @@
 // import './App.css';
 import { Link } from "react-router-dom";
 import Avatar from "../images/91641202.jpeg"
+import { DateTime } from "luxon";
+
 
 function PostListCard() {
 
@@ -9,18 +11,19 @@ function PostListCard() {
         preview: "This is supposed to be a text preview of no longer than 300 chars. I will show you how I created this post with the help of nodeJs and other tools! Wohoo!!",
         content: "blblbl",
         tags: ["Node", "React", "Express"],
-        date: Date.now,
+        date: DateTime.now().toISO(),
         author: "Rinuya",
         comments: [{crazy: "crazy"}, {woah: "woah"}],
         public: false,
         _id: "21312312312413323213123"
     }
 
-
+    const formattedDate = DateTime.fromISO(examplepost.date).toLocaleString(DateTime.DATE_MED);
+    console.log(formattedDate)
     return (
       <div className="max-w-4xl md:mx-6 mx-2">
         <div class="bg-base-100 p-6 rounded-lg drop-shadow-md">
-            <span class="text-sm font-light">Mar 10, 2019</span>
+            <span class="text-sm font-light">{formattedDate}</span>
     
             <div class="mt-2">
                 <Link to="/posts"><a class="text-2xl neutral-focus font-bold hover:underline prose-2xl">{examplepost.title}</a></Link>

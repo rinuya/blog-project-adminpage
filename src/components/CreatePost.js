@@ -2,19 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Editor } from '@tinymce/tinymce-react';
-import TagList from "./TagList"
+import TagList from "./TagList";
+import { DateTime } from "luxon";
 
 
 
 const  CreatePost = () => {
-    
-    
+     
     const editorRef = useRef(null);
-    const log = () => {
-        if (editorRef.current) {
-          console.log(editorRef.current.getContent());
-        }
-    };
+
     const [postDetails, setPostDetails] = useState({
         title: "",
         preview: "",
@@ -36,7 +32,7 @@ const  CreatePost = () => {
     //helper functions
     const createPost = async (formPost) => {
         try{
-            let post = await { ...formPost, date: Date.now(), content: editorRef.current.getContent(), tags: [...tags]};
+            let post = await { ...formPost, date: DateTime.now().toISO(), content: editorRef.current.getContent(), tags: [...tags]};
             let token = await localStorage.getItem("token");
             let response = await fetch("http://localhost:3000/private/posts", {
                 method: "POST",
@@ -60,7 +56,6 @@ const  CreatePost = () => {
             console.error(error);
         }
     }
-
 
     //form functions
     const handleChange = (event) => {
@@ -90,8 +85,6 @@ const  CreatePost = () => {
         // navigate("/posts/:post");
       };
     
-    
-
     return (
         <div className="h-full neutral-content w-full py-16 px-1 md:px-4 bg-base-200">
         <div className="flex flex-col items-center justify-center ">
