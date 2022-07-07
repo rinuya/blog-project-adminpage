@@ -34,7 +34,7 @@ const  CreatePost = () => {
         try{
             let post = await { ...formPost, date: DateTime.now().toISO(), content: editorRef.current.getContent(), tags: [...tags]};
             let token = await localStorage.getItem("token");
-            let response = await fetch("http://localhost:3000/private/posts", {
+            let response = await fetch("http://localhost:3000/private/create-post", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -1,65 +1,39 @@
-// import './App.css';
 import { Link } from "react-router-dom";
 import Avatar from "../images/91641202.jpeg"
 import { DateTime } from "luxon";
 
 
-function PostListCard() {
+function PostListCard(props) {
 
-    const examplepost = {
-        title: "Example Post Title that is a little longer than you would think",
-        preview: "This is supposed to be a text preview of no longer than 300 chars. I will show you how I created this post with the help of nodeJs and other tools! Wohoo!!",
-        content: "blblbl",
-        tags: ["Node", "React", "Express"],
-        date: DateTime.now().toISO(),
-        author: "Rinuya",
-        comments: [{crazy: "crazy"}, {woah: "woah"}],
-        public: false,
-        _id: "21312312312413323213123"
-    }
+    const data = props.data;
 
-    const formattedDate = DateTime.fromISO(examplepost.date).toLocaleString(DateTime.DATE_MED);
-    console.log(formattedDate)
+    const formattedDate = DateTime.fromISO(data.date).toLocaleString(DateTime.DATE_MED);
+
     return (
-      <div className="max-w-4xl md:mx-6 mx-2">
-        <div class="bg-base-100 p-6 rounded-lg drop-shadow-md">
-            <span class="text-sm font-light">{formattedDate}</span>
-    
-            <div class="mt-2">
-                <Link to="/posts"><a class="text-2xl neutral-focus font-bold hover:underline prose-2xl">{examplepost.title}</a></Link>
-                <p class="mt-2">{examplepost.preview}</p>
+      <div className="w-full max-w-4xl" key={data.title}>
+        <div className="bg-base-100 p-6 rounded-lg drop-shadow-md flex flex-col md:mx-6 mx-2">
+
+            <span className="text-sm font-light mb-2">{formattedDate}</span>
+            <div className="flex flex-col flex-1">
+                <Link to="/posts"><a className="text-2xl neutral-focus font-bold hover:underline prose-2xl">{data.title}</a></Link>
+                <p className="mt-2 md:text-md text-sm">{data.preview}</p>
             </div>
             <div>
-                {examplepost.tags.map(tag=>{
-                    return <p className="text-gray-800 text-xs badge badge-outline badge-accent p-2 mr-2 mb-2 mt-3">{tag}</p>
+                {data.tags.map(tag=>{
+                    return <p className="text-xs badge badge-outline badge-accent p-2 mr-2 mb-2 mt-3">{tag}</p>
                 })}
             </div>
             
-            <div class="flex items-center justify-between mt-4 ">
-                <div className="flex items-center btn btn-secondary">
+            <div className="flex items-center justify-between mt-4 ">
+                <button className="flex items-center btn btn-secondary">
                 <a className="text-white">Read more</a>
-                <svg class="ml-2 -mr-1 w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </div>
-                <div class="flex items-center">
-                    <img class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" src={Avatar} alt="avatar" />
-                    <a class="font-bold text-secondary">{examplepost.author}</a>
+                <svg className="ml-2 -mr-1 w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                </button>
+                <div className="flex items-center">
+                    <img className="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" src={Avatar} alt="avatar" />
+                    <a className="font-bold text-secondary">{data.author}</a>
                 </div>
             </div>
-                
-            {/* <a href={examplepost._id}>
-                <h5 class="mb-2 text-2xl font-bold tracking-tight prose-2xl">{examplepost.title}</h5>
-            </a>    
-        
-            
-          
-            <p class="mb-3 font-normal py-3">{examplepost.preview}</p>
-            <div className="w-full flex justify-between">
-            <a href={examplepost._id} class="btn btn-secondary mt-2">
-                Read more
-                <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </a>
-            <p className="justify-sef-end mt-auto text-sm">by Rinuya</p>
-            </div> */}
         </div>
       </div>
     );
