@@ -57,7 +57,9 @@ function PostList() {
       return (
         <div className="bg-base-300 h-full neutral-content w-full flex flex-col items-center">
           <div>
-            <p>{data.public_post_count}</p>
+            <p>Public posts: {data.public_post_count}</p>
+            <p>Private posts: {data.private_post_count}</p>
+            <p>Total posts: {data.public_post_count+data.private_post_count}</p>
           </div>
           <PostListList posts={data.posts} />
           <p>Test if data received</p>

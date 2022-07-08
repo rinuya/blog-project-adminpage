@@ -6,16 +6,21 @@ import { DateTime } from "luxon";
 function PostListCard(props) {
 
     const data = props.data;
+    const link = "/posts/"+data.title; 
 
     const formattedDate = DateTime.fromISO(data.date).toLocaleString(DateTime.DATE_MED);
 
     return (
       <div className="w-full max-w-4xl" key={data.title}>
+        
         <div className="bg-base-100 p-6 rounded-lg drop-shadow-md flex flex-col md:mx-6 mx-2">
-
-            <span className="text-sm font-light mb-2">{formattedDate}</span>
+            {/* IMG will go here, remove padding from the div above and add a new div below, with the padding params. */}
+            <div className="flex justify-between">
+                <span className="text-sm font-light mb-2">{formattedDate}</span>
+                <p className="badge p-3">Public: {data.public.toLocaleString()}</p>
+            </div>
             <div className="flex flex-col flex-1">
-                <Link to="/posts"><a className="text-2xl neutral-focus font-bold hover:underline prose-2xl">{data.title}</a></Link>
+                <Link to={link}><a className="text-2xl neutral-focus font-bold hover:underline prose-2xl">{data.title}</a></Link>
                 <p className="mt-2 md:text-md text-sm">{data.preview}</p>
             </div>
             <div>
