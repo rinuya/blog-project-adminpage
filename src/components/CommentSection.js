@@ -9,12 +9,12 @@ function CommentSection(props) {
         <h3 className="block mt-2 text-2xl font-semibold">Discussion:</h3>
          {comments.map((comment) => {
             return (
-                <div className="flex flex-col mb-2 mr-2 p-3 border rounded-md">
-                    <div className="flex">
-                        <p className="text-xs">{comment.author}</p>
-                        <p>{DateTime.fromISO(comment.date).toLocaleString(DateTime.DATE_MED)}</p>
-                    </div>
+                <div className="flex flex-col  mb-2 px-2 border rounded-md">                 
                     <p>{comment.content}</p>
+                    <div className="flex items-center gap-5">
+                        <p className="text-accent">{comment.author}</p>
+                        <p className="text-sm">{DateTime.fromISO(comment.date).toLocaleString(DateTime.DATE_MED)}</p>
+                    </div>
                 </div>
                 
             )
