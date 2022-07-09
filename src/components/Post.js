@@ -5,7 +5,8 @@ import './blogpost.css';
 import { DateTime } from "luxon";
 import Avatar from "../images/91641202.jpeg";
 import TagList from "./TagList";
-
+import CommentSection from "./CommentSection";
+import CommentForm from "./CommentForm";
 
 function Post(props) {
 
@@ -31,7 +32,6 @@ function Post(props) {
           },
           body: JSON.stringify(params)
       });
-      console.log(response)
       response = await response.json();
       setPost(response.post[0]);
       setPostReceived(true);
@@ -49,7 +49,7 @@ function Post(props) {
       <div className="bg-base-200 h-full neutral-content w-full flex flex-col items-center py-5">
         <div class="max-w-3xl w-full overflow-hidden bg-base-100 rounded-lg shadow-md">
           <img class="object-cover w-full h-64" src="https://images.unsplash.com/photo-1550063873-ab792950096b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Article" />
-          <div class="p-3 md:p-6">
+          <div class="px-3 pt-3 md:px-6 md: pt-6">
             <div>
               <TagList tagList={post.tags} />
               <h2 class="block mt-2 text-2xl font-semibold">{post.title}</h2>
@@ -62,10 +62,15 @@ function Post(props) {
             </div>
             <span class="mx-4 text-sm ">{formattedDate}</span>
           </div>
+          <div className="divider" />
         </div>
-        <div className="blogpost p-3 md:p-6">  
+        <div className="blogpost px-3 md:px-6">  
           {Parser().parse(post.content)}
+          <div className="divider" />
+        <CommentSection post={post} comments={post.comments} />
+        <CommentForm post={post} />
         </div>
+      
       </div>
     </div>
   );  

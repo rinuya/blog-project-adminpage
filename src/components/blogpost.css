@@ -91,3 +91,8 @@
 .blogpost strong{
     font-weight: bold;
 }
+
+.blogpost a{
+    color: rgb(25, 25, 238);
+}
+

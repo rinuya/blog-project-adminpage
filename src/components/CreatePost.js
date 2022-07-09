@@ -43,7 +43,6 @@ const  CreatePost = () => {
                 body: JSON.stringify(post)
             });
             response = await response.json();
-            console.log(response);
   
             if (response.success) {
                 navigate("/posts");
