@@ -28,22 +28,15 @@ function CommentForm(props) {
         
         let url = "http://localhost:3000/public/posts/"+comment.postid+"/comments/create-comment"
         try{
-            let fullComment = await { ...comment, date: DateTime.now().toISO(),};
-            console.log (fullComment)
             let response = await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(fullComment)
+                body: JSON.stringify(comment)
             });
             response = await response.json();
-  
-            if (response.success) {
-                navigate(link);
-            } else {
-                alert(response.message)
-            }
+            window.location.reload();
             //so once everything is subitted call the function that will reload the posts on the page before. You do that by passing the function in as props and then calling it inside here on success
         }
         catch (error) {
