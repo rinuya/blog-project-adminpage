@@ -6,10 +6,7 @@ import { useNavigate } from "react-router-dom";
 function CommentForm(props) {
     const post = props.post;
 
-    const link = "/posts/" + post.title; 
-
-    const navigate = useNavigate();
-
+    const [modalShown, setModalShown] = useState(false)
 
     const [commentDetails, setCommentDetails] = useState({
         author: "",
