@@ -1,7 +1,4 @@
-import { data } from "autoprefixer";
-import { postcss } from "daisyui/src/lib/postcss-prefixer";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
 
 function PostList() {
@@ -26,13 +23,9 @@ function PostList() {
               "Authorization": `Bearer ${token}`,
           },
       });
-      console.log(response);
       response = await response.json();
-      console.log(response);
       setData(response);
       setDataReceived(true)
-
-      //so once everything is subitted call the function that will reload the posts on the page before. You do that by passing the function in as props and then calling it inside here on success
   }
     catch (error) {
         console.error(error);
@@ -50,14 +43,8 @@ function PostList() {
               "Authorization": `Bearer ${token}`,
           },
       });
-      console.log(response);
       response = await response.json();
-      console.log(response);
-      setData(response);
-      setDataReceived(true)
       window.location.reload();
-
-      //so once everything is subitted call the function that will reload the posts on the page before. You do that by passing the function in as props and then calling it inside here on success
   }
     catch (error) {
         console.error(error);
@@ -65,8 +52,27 @@ function PostList() {
   }
 
 
-  // Display blog articles in a list 
-  // If clicked on an article, pass down the item into the component through props
+
+  async function approveComment(id) {
+    try{
+      let token = await localStorage.getItem("token");
+      let response = await fetch(`http://localhost:3000/private/comments/${id}/edit`, {
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+          },
+      });
+      response = await response.json();
+      console.log(response);
+      window.location.reload();
+  }
+    catch (error) {
+        console.error(error);
+    }
+  }
+
+
   if (dataReceived) {
       return (
         <div className="bg-base-300 h-full neutral-content w-full flex flex-col items-center">
@@ -87,7 +93,7 @@ function PostList() {
                   </div> 
                   <div className="flex flex-col md:flex-row md: md:gap-5 items-center">
                     <button className="btn btn-outline" onClick={()=>deleteComment(comment._id)}>Delete</button>
-                    <button className="btn btn-secondary">Approve</button>
+                    <button className="btn btn-secondary" onClick={()=>approveComment(comment._id)}>Approve</button>
                   </div>
                 </div>
             )
@@ -104,7 +110,6 @@ function PostList() {
       </div>
     );
   }
-  
 }
   
   export default PostList;
