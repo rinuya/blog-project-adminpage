@@ -44,7 +44,9 @@ function PostList() {
           },
       });
       response = await response.json();
-      window.location.reload();
+      setDataReceived(true);
+      fetchComments();
+
   }
     catch (error) {
         console.error(error);
@@ -64,8 +66,8 @@ function PostList() {
           },
       });
       response = await response.json();
-      console.log(response);
-      window.location.reload();
+      setDataReceived(true);
+      fetchComments();
   }
     catch (error) {
         console.error(error);

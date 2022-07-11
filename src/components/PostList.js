@@ -62,7 +62,6 @@ function PostList() {
             <p>Total posts: {data.public_post_count+data.private_post_count}</p>
           </div>
           <PostListList posts={data.posts} />
-          <p>Test if data received</p>
       </div>
       )
   }

@@ -8,9 +8,8 @@ function CommentSection(props) {
       <div>
         <h3 className="block mt-2 text-2xl font-semibold">Discussion:</h3>
          {comments.map((comment) => {
-            if(comment.approved){
                 return (
-                    <div className="flex flex-col  mb-2 px-2 border rounded-md">                 
+                    <div className="flex flex-col  mb-2 px-2 border rounded-md bg-base-200">                 
                         <p>{comment.content}</p>
                         <div className="flex items-center gap-5">
                             <p className="text-accent">by {comment.author}</p>
@@ -19,7 +18,6 @@ function CommentSection(props) {
                     </div>
                     
                 )
-            }
         })}
       </div>
     );

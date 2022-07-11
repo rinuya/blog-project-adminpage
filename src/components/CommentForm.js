@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 function CommentForm(props) {
     const post = props.post;
 
-    const [modalShown, setModalShown] = useState(false)
-
     const [commentDetails, setCommentDetails] = useState({
         author: "",
         content: "",
@@ -17,10 +15,10 @@ function CommentForm(props) {
 
     const createComment = async (comment) => {
         if (commentDetails.author.length < 3 || commentDetails.author.length>12){
-            return alert("Alias too short")
+            return alert("Alias should be between 3 and 12 characters")
         }
         if (commentDetails.content.length < 3 || commentDetails.content.length>120){
-            return alert("Comment too short")
+            return alert("Comment should be between 3 and 120 characters")
         }
         
         let url = "http://localhost:3000/public/posts/"+comment.postid+"/comments/create-comment"
