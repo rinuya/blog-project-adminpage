@@ -1,8 +1,4 @@
-import { data } from "autoprefixer";
-import { postcss } from "daisyui/src/lib/postcss-prefixer";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import PostListCard from "./PostListCard";
 import PostListList from "./PostListList";
 
 function PostList() {

@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Parser } from 'html-to-react'
 import './blogpost.css';
 import { DateTime } from "luxon";
 import Avatar from "../images/91641202.jpeg";
-import TagList from "./TagList";
 import CommentSection from "./CommentSection";
 import CommentForm from "./CommentForm";
-import { useNavigate } from "react-router-dom";
 
 function Post(props) {
 
@@ -144,7 +142,9 @@ function Post(props) {
           <img class="object-cover w-full h-64" src="https://images.unsplash.com/photo-1550063873-ab792950096b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Article" />
           <div class="px-3 pt-3 md:px-6 md: pt-6">
             <div>
-              <TagList tagList={post.tags} />
+              {post.tags.map(tag=>{
+                    return <p className="text-xs badge badge-outline badge-accent p-2 mr-2 mb-2 mt-3">{tag}</p>
+              })}
               <h2 class="block mt-2 text-2xl font-semibold">{post.title}</h2>
               <p class="mt-2 text-sm ">{post.preview}</p>
             </div>

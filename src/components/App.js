@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useEffect } from 'react'
 import PostList from "./PostList"
 import Login from "./Login"
 import CommentList from "./CommentList"
@@ -8,7 +7,7 @@ import EditPost from './EditPost'
 import Footer from './Footer'
 import Post from "./Post"
 
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { Navigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 
