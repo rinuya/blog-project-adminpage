@@ -95,13 +95,10 @@ const  EditPost = () => {
     const handleTagDelete = async (tagname) => {
         const tagArray = postDetails.tags;
         tagArray.splice(tagArray.findIndex(e => e === tagname), 1)
-        console.log(tagArray);
         setPostDetails({
             ...postDetails,
             tags: tagArray,
         })
-        console.log("turns to ")
-        console.log(postDetails.tags)
     }
 
     function handleSubmit (event) {

@@ -2,8 +2,7 @@ function TagList(props) {
 
     let tagList = props.tagList;
     let handleTagDelete = props.handleTagDelete;
-
-    console.log(props)
+    
     return (
       <div>
          {tagList.map((tag) => {

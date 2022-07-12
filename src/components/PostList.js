@@ -33,9 +33,7 @@ function PostList() {
           },
           body: JSON.stringify(pageParameters)
       });
-      console.log(response)
       response = await response.json();
-      console.log(response);
       setData(response);
       setDataReceived(true)
 

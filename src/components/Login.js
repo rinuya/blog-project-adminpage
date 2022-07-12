@@ -25,7 +25,6 @@ const  Login = () => {
             });
             response = await response.json();
             await localStorage.setItem("token", response.token)
-            console.log (response)
             navigate("/posts");
         }
         catch (error) {

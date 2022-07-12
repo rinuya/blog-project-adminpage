@@ -36,7 +36,6 @@ function Post(props) {
           body: JSON.stringify(params)
       });
       response = await response.json();
-      console.log(response)
       setPost(response.post[0]);
       setPostReceived(true);
 
@@ -118,9 +117,6 @@ function Post(props) {
     navigate(link);
   }
 
-
-
-  console.log(post.content)
   if (postReceived) {
     return (
       <div className="bg-base-200 h-full neutral-content w-full flex flex-col items-center py-5">
