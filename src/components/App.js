@@ -4,6 +4,7 @@ import PostList from "./PostList"
 import Login from "./Login"
 import CommentList from "./CommentList"
 import CreatePost from './CreatePost'
+import EditPost from './EditPost'
 import Footer from './Footer'
 import Post from "./Post"
 
@@ -58,6 +59,7 @@ function App(props) {
             <Route path="/comments" element={<CommentList />} />
             <Route path="/login" element={<Login />} />
             <Route path="/create-post" element={<CreatePost />} />
+            <Route path="posts/:title/edit-post" element={<EditPost />} />
           </Routes>
           </div>
 

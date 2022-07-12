@@ -115,12 +115,16 @@ function Post(props) {
     }
   }
 
+  async function editPost () {
+    const link = "/posts/"+post.title+"/edit-post"; 
+    navigate(link);
+  }
 
-  
+
+
   console.log(post.content)
   if (postReceived) {
     return (
-      
       <div className="bg-base-200 h-full neutral-content w-full flex flex-col items-center py-5">
         {/* Modal */}
         <input type="checkbox" id="my-modal-4" className="modal-toggle" />
@@ -158,7 +162,7 @@ function Post(props) {
           {Parser().parse(post.content)}
           <div className="divider" />
           <div className="flex gap-2">
-            <button className="btn btn-outline" onClick={()=>console.log("edit!")}>Edit</button>
+            <button className="btn btn-outline" onClick={()=>editPost()}>Edit</button>
             { post.public ?  <button className="btn btn-outline" onClick={()=>privatizePost()}>Make post Private</button> : <button className="btn btn-outline" onClick={()=>publicizePost()}>Make post Public</button> }
             <label for="my-modal-4" className="btn modal-button btn-warning btn-outline">Delete Post</label>
           </div>
