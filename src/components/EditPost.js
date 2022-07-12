@@ -160,7 +160,7 @@ const  EditPost = () => {
                             <span className=" prose-xl">Tags</span>
                         </label>
                         <TagList tagList={postDetails.tags} handleTagDelete={handleTagDelete}  />
-                        <div class="input-group">
+                        <div className="input-group">
                         <input type="text" placeholder="Tag" name="tags" className="focus:border-secondary input input-secondary input-bordered lg:w-1/2 xl:w-1/2 md:w-1/2 w-2/3"  onChange={handleTagInput} value={currentTag} />
                         <button type="button" className="btn btn-secondary" onClick={handleTagSubmit}>Add tag</button>
                         </div>

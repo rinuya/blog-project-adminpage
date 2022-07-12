@@ -51,11 +51,11 @@ function CommentForm(props) {
         <h4 className="text-2xl font-semibold">Leave a comment:</h4>
         <div className="pb-5 w-full flex justify-center">
             <form onSubmit={handleCommentSubmit} className="w-full max-w-md" method="POST">
-                <div class="flex flex-col pb-5 w-full">
-                    <input type="text" placeholder="Alias" class="input w-full  bg-base-100" name="author" onChange={handleChange} value={commentDetails.author} /> 
+                <div className="flex flex-col pb-5 w-full">
+                    <input type="text" placeholder="Alias" className="input w-full  bg-base-100" name="author" onChange={handleChange} value={commentDetails.author} /> 
                 </div>
-                <div class="flex flex-col">
-                    <textarea class="textarea bg-base-100  h-32" placeholder="Comment" name="content" onChange={handleChange} value={commentDetails.content}></textarea>
+                <div className="flex flex-col">
+                    <textarea className="textarea bg-base-100  h-32" placeholder="Comment" name="content" onChange={handleChange} value={commentDetails.content}></textarea>
                 </div> 
                 <div className="flex w-full  justify-end">
                     <button className="btn mt-2 btn-secondary">Submit</button>

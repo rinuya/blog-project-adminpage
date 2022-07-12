@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Editor } from '@tinymce/tinymce-react';
 import TagList from "./TagList";
 import { DateTime } from "luxon";
+// import Dropzone from 'react-dropzone'
 
 
 
@@ -14,8 +15,7 @@ const  CreatePost = () => {
         title: "",
         preview: "",
         content: "",
-        //how do I upload images
-        img: "",
+        // img: "",
         tags: [], 
         date: "",
         comments: [],
@@ -136,21 +136,36 @@ const  CreatePost = () => {
                         <span className=" prose-xl">Tags</span>
                     </label>
                     <TagList tagList={tags} />
-                    <div class="input-group">
+                    <div className="input-group">
                     <input type="text" placeholder="Tag" name="tags" className="focus:border-secondary input input-secondary input-bordered lg:w-1/2 xl:w-1/2 md:w-1/2 w-2/3"  onChange={handleTagInput} value={currentTag} />
                     <button type="button" className="btn btn-secondary" onClick={handleTagSubmit}>Add tag</button>
                     </div>
                 </div>
-                <div className="form-control w-full">
-                    <label className="label mt-5">
-                        <span className=" prose-xl">Upload Image (Coming soon...)</span>
-                    </label>
+
+                <div className="form-control w-full mt-5">
+
+                {/* <Dropzone onDrop={acceptedFiles => setPostDetails({
+                    ...postDetails,
+                    img: acceptedFiles,
+                })}>
+                    {({getRootProps, getInputProps}) => (
+                        <section >
+                        <div className="flex justify-center items-center btn btn-outline h-24 max-w-2xl rounded-full hover:cursor-pointer" {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <p>Drag 'n' drop some files here, or click to select files</p>
+                        </div>
+                        </section>
+                    )}
+                </Dropzone> */}
+ 
+            
                 </div>
-                <div className="mt-8">
+                <div className="mt-8 w-full flex justify-center md:justify-start">
                     <button type="submit" className="btn btn-primary px-12">
                         Create your Post!
                     </button>
                 </div>
+                <button className="btn" type="button" onClick={()=>console.log(postDetails.img)}>Console.log</button>
                 </form>
             </div>
         </div>
