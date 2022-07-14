@@ -12,7 +12,7 @@ const  Login = () => {
 
     const loginFunction = async (username, password) => {
         try{
-            let response = await fetch("http://localhost:3000/public/adminlogin", {
+            let response = await fetch("https://shrouded-wave-21751.herokuapp.com/public/adminlogin", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",

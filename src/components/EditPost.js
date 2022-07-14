@@ -48,7 +48,7 @@ const  EditPost = () => {
         try{
             let post = await { ...postDetails, content: editorRef.current.getContent()};
             let token = await localStorage.getItem("token");
-            let response = await fetch("http://localhost:3000/private/posts/post/edit", {
+            let response = await fetch("https://shrouded-wave-21751.herokuapp.com/private/posts/post/edit", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

@@ -27,7 +27,7 @@ function Post(props) {
   async function fetchPost () {
     try{
       let token = await localStorage.getItem("token");
-      let response = await fetch("http://localhost:3000/private/posts/post", {
+      let response = await fetch("https://shrouded-wave-21751.herokuapp.com/private/posts/post", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
@@ -50,7 +50,7 @@ function Post(props) {
   async function publicizePost () {
     try{
       let token = await localStorage.getItem("token");
-      let response = await fetch("http://localhost:3000/private/posts/post/publicize", {
+      let response = await fetch("https://shrouded-wave-21751.herokuapp.com/private/posts/post/publicize", {
           method: "PUT",
           headers: {
               "Content-Type": "application/json",
@@ -71,7 +71,7 @@ function Post(props) {
   async function privatizePost () {
     try{
       let token = await localStorage.getItem("token");
-      let response = await fetch("http://localhost:3000/private/posts/post/privatize", {
+      let response = await fetch("https://shrouded-wave-21751.herokuapp.com/private/posts/post/privatize", {
           method: "PUT",
           headers: {
               "Content-Type": "application/json",
@@ -92,7 +92,7 @@ function Post(props) {
   async function deletePost () {
     try{
       let token = await localStorage.getItem("token");
-      let response = await fetch("http://localhost:3000/private/posts/post/delete", {
+      let response = await fetch("https://shrouded-wave-21751.herokuapp.com/private/posts/post/delete", {
           method: "DELETE",
           headers: {
               "Content-Type": "application/json",
